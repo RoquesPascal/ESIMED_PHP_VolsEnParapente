@@ -11,9 +11,16 @@ class FlyRepository
      */
     public static function FindAll() : array
     {
-        $connexion = SingletonPDO::getInstance();
-        $sql = "SELECT * FROM fly ORDER BY id ASC;";
-        return $connexion->query($sql)->fetchAll();
+        try
+        {
+            $connexion = SingletonPDO::getInstance();
+            $sql = "SELECT * FROM fly ORDER BY id ASC;";
+            return $connexion->query($sql)->fetchAll();
+        }
+        catch (Error $event)
+        {
+            die('Erreur : ' . $event->getMessage());
+        }
     }
 
     /**
@@ -22,9 +29,16 @@ class FlyRepository
      */
     public static function Find($id) : Fly
     {
-        $connexion = SingletonPDO::getInstance();
-        $sql = "SELECT * FROM fly WHERE id=$id;";
-        return $connexion->query($sql)->fetchObject('Fly');
+        try
+        {
+            $connexion = SingletonPDO::getInstance();
+            $sql = "SELECT * FROM fly WHERE id=$id;";
+            return $connexion->query($sql)->fetchObject('Fly');
+        }
+        catch (Error $event)
+        {
+            die('Erreur : ' . $event->getMessage());
+        }
     }
 
     /**
@@ -38,19 +52,26 @@ class FlyRepository
      */
     public static function Save(?Int $id, $date, $location, $altitude_from, $altitude_to, $time, ?String $comment)
     {
-        $connexion = SingletonPDO::getInstance();
-
-        if($id)
+        try
         {
-            $sql="UPDATE fly 
+            $connexion = SingletonPDO::getInstance();
+
+            if($id)
+            {
+                $sql="UPDATE fly 
                   SET date='$date', location='$location', altitude_from=$altitude_from, altitude_to=$altitude_to, time=$time, comment=NULLIF('$comment','')
                   WHERE id=$id;";
-            $connexion->exec($sql);
+                $connexion->exec($sql);
+            }
+            else
+            {
+                $sql = "INSERT INTO fly VALUES (DEFAULT, '$date', '$location', '$altitude_from', '$altitude_to', '$time', NULLIF('$comment',''));";
+                $connexion->query($sql);
+            }
         }
-        else
+        catch (Error $event)
         {
-            $sql = "INSERT INTO fly VALUES (DEFAULT, '$date', '$location', '$altitude_from', '$altitude_to', '$time', NULLIF('$comment',''));";
-            $connexion->query($sql);
+            die('Erreur : ' . $event->getMessage());
         }
     }
 
@@ -59,8 +80,15 @@ class FlyRepository
      */
     public static function Delete($id)
     {
-        $connexion = SingletonPDO::getInstance();
-        $sql = "DELETE FROM fly WHERE id=$id;";
-        $connexion->exec($sql);
+        try
+        {
+            $connexion = SingletonPDO::getInstance();
+            $sql = "DELETE FROM fly WHERE id=$id;";
+            $connexion->exec($sql);
+        }
+        catch (Error $event)
+        {
+            die('Erreur : ' . $event->getMessage());
+        }
     }
 }
