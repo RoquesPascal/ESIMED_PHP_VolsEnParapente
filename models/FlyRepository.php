@@ -16,9 +16,15 @@ class FlyRepository
         return $connexion->query($sql)->fetchAll();
     }
 
-    public static function Find($id)
+    /**
+     * @param $id
+     * @return Fly
+     */
+    public static function Find($id) : Fly
     {
-
+        $connexion = SingletonPDO::getInstance();
+        $sql = "SELECT * FROM fly WHERE id=$id;";
+        return $connexion->query($sql)->fetchObject('Fly');
     }
 
     public static function Save($id, $date, $location, $altitude_from, $altitude_to, $time, $comment)

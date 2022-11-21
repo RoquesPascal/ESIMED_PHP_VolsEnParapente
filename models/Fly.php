@@ -3,7 +3,7 @@
 class Fly
 {
     private int $id;
-    private DateTime $date;
+    private string $date;
     private string $location;
     private int $altitude_from;
     private int $altitude_to;
@@ -28,17 +28,17 @@ class Fly
     }
 
     /**
-     * @return DateTime
+     * @return string
      */
-    public function getDate(): DateTime
+    public function getDate(): string
     {
         return $this->date;
     }
 
     /**
-     * @param DateTime $date
+     * @param string $date
      */
-    public function setDate(DateTime $date): void
+    public function setDate(string $date): void
     {
         $this->date = $date;
     }

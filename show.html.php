@@ -23,13 +23,13 @@
                 <th>Modifier / Supprimer</th>
             </tr>
             <tr>
-                <td><?php echo $id ?></td>
+                <td><?php echo $id; ?></td>
                 <td><?php echo $date ?></td>
-                <td><?php echo $location ?></td>
-                <td><?php echo $altitude_from ?></td>
-                <td><?php echo $altitude_to ?></td>
-                <td><?php echo $time ?></td>
-                <td><?php echo $comment ?></td>
+                <td><?php echo $location; ?></td>
+                <td><?php echo $altitude_from; ?></td>
+                <td><?php echo $altitude_to; ?></td>
+                <td><?php echo $time; ?></td>
+                <td><?php echo $comment; ?></td>
                 <td>
                     <form action="edit.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $id ?>" />
