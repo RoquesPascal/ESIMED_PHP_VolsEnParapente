@@ -13,12 +13,12 @@ if(isset($id))
 
         $date = $_POST['date'];
         $location = $_POST['location'];
-        $from = $_POST['from'];
-        $to = $_POST['to'];
+        $altitude_from = $_POST['altitude_from'];
+        $altitude_to = $_POST['altitude_to'];
         $time = $_POST['time'];
         $comment = $_POST['comment'];
 
-        if(isset($date) && isset($location) && isset($from) && isset($to) && isset($time))
+        if(isset($date) && isset($location) && isset($altitude_from) && isset($altitude_to) && isset($time))
         {
             $sql="UPDATE fly 
                   SET date='$date', location='$location', altitude_from=$from, altitude_to=$to, time=$time, comment='$comment'

@@ -13,8 +13,8 @@
         <form action="add.php" method="post">
             date : <input type="date" name="date" value="<?php echo date('Y-m-d') ?>" required><br/>
             location : <input type="text" name="location" maxlength="200" required><br/>
-            from : <input type="number" name="from" required><br/>
-            to : <input type="number" name="to" required><br/>
+            from : <input type="number" name="altitude_from" required><br/>
+            to : <input type="number" name="altitude_to" required><br/>
             time : <input type="text" name="time" required><br/>
             comment : <textarea name="comment" rows="5" cols="33"></textarea><br/>
             <input type="submit" value="Enregistrer">
