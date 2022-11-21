@@ -53,4 +53,14 @@ class FlyRepository
             $connexion->query($sql);
         }
     }
+
+    /**
+     * @param $id
+     */
+    public static function Delete($id)
+    {
+        $connexion = SingletonPDO::getInstance();
+        $sql = "DELETE FROM fly WHERE id=$id;";
+        $connexion->exec($sql);
+    }
 }
