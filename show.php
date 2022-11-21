@@ -19,7 +19,7 @@ if(isset($id))
         $time = $vol->getTime();
         $comment = $vol->getComment();
     }
-    catch (PDOException $event)
+    catch (Error $event)
     {
         die('Erreur : ' . $event->getMessage());
     }

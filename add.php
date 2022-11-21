@@ -20,7 +20,7 @@ if(isset($date) && isset($location) && isset($from) && isset($to) && isset($time
         header("Location: index.php");
         exit();
     }
-    catch (PDOException $event)
+    catch (Error $event)
     {
         die('Erreur : ' . $event->getMessage());
     }

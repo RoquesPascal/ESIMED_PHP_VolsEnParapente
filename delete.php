@@ -15,7 +15,7 @@ if(isset($id))
         header("Location: index.php");
         exit();
     }
-    catch (PDOException $event)
+    catch (Error $event)
     {
         die('Erreur : ' . $event->getMessage());
     }

@@ -42,7 +42,7 @@ if(isset($id))
             $comment = $donnee['comment'];
         }
     }
-    catch (PDOException $event)
+    catch (Error $event)
     {
         die('Erreur : ' . $event->getMessage());
     }

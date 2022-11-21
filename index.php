@@ -7,7 +7,7 @@ try
 {
     $listeVols = FlyRepository::FindAll();
 }
-catch (PDOException $event)
+catch (Error $event)
 {
     die('Erreur : '.$event->getMessage());
 }
