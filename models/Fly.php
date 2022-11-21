@@ -2,11 +2,126 @@
 
 class Fly
 {
-    private int
-    private DateTime
-    private int
-    private int
-    private int
-    private int
-    private int
+    private int $id;
+    private DateTime $date;
+    private string $location;
+    private int $altitude_from;
+    private int $altitude_to;
+    private int $time;
+    private ?string $comment;
+
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDate(): DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param DateTime $date
+     */
+    public function setDate(DateTime $date): void
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     */
+    public function setLocation(string $location): void
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAltitudeFrom(): int
+    {
+        return $this->altitude_from;
+    }
+
+    /**
+     * @param int $altitude_from
+     */
+    public function setAltitudeFrom(int $altitude_from): void
+    {
+        $this->altitude_from = $altitude_from;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAltitudeTo(): int
+    {
+        return $this->altitude_to;
+    }
+
+    /**
+     * @param int $altitude_to
+     */
+    public function setAltitudeTo(int $altitude_to): void
+    {
+        $this->altitude_to = $altitude_to;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTime(): int
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param int $time
+     */
+    public function setTime(int $time): void
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string|null $comment
+     */
+    public function setComment(?string $comment): void
+    {
+        $this->comment = $comment;
+    }
+
+
 }
