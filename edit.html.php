@@ -11,13 +11,13 @@
         <a href="index.php"><button>menu principal</button></a>
         
         <form action="edit.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $id ?>" />
-            date : <input type="date" name="date" value="<?php echo $date ?>" required><br/>
-            location : <input type="text" name="location" maxlength="200" value="<?php echo $location ?>" required><br/>
-            from : <input type="number" name="from" value="<?php echo $altitude_from ?>" required><br/>
-            to : <input type="number" name="to" value="<?php echo $altitude_to ?>" required><br/>
-            time : <input type="text" name="time" value="<?php echo $time ?>" required><br/>
-            comment : <textarea name="comment" rows="5" cols="33"><?php echo $comment ?></textarea><br/>
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            date : <input type="date" name="date" value="<?php echo $date; ?>" required><br/>
+            location : <input type="text" name="location" maxlength="200" value="<?php echo $location; ?>" required><br/>
+            from : <input type="number" name="from" value="<?php echo $altitude_from; ?>" required><br/>
+            to : <input type="number" name="to" value="<?php echo $altitude_to; ?>" required><br/>
+            time : <input type="text" name="time" value="<?php echo $time; ?>" required><br/>
+            comment : <textarea name="comment" rows="5" cols="33"><?php echo $comment; ?></textarea><br/>
             <input type="submit" value="Enregistrer">
         </form>
     </body>

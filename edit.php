@@ -1,6 +1,7 @@
 <?php
 use App\Utils\SingletonPDO;
 require_once __DIR__.'/autoload.php';
+require_once __DIR__.'/models/FlyRepository.php';
 
 $id = $_POST['id'];
 
@@ -29,17 +30,15 @@ if(isset($id))
         }
         else
         {
-            $sql = "SELECT * FROM fly WHERE id=$id;";
-            $liste = $connexion->query($sql);
+            $vol = FlyRepository::Find($id);
 
-            $donnee = $liste->fetch();
-            $id = $donnee['id'];
-            $date = $donnee['date'];
-            $location = $donnee['location'];
-            $altitude_from = $donnee['altitude_from'];
-            $altitude_to = $donnee['altitude_to'];
-            $time = $donnee['time'];
-            $comment = $donnee['comment'];
+            $id = $vol->getId();
+            $date = $vol->getDate();
+            $location = $vol->getLocation();
+            $altitude_from = $vol->getAltitudeFrom();
+            $altitude_to = $vol->getAltitudeTo();
+            $time = $vol->getTime();
+            $comment = $vol->getComment();
         }
     }
     catch (Error $event)
