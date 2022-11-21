@@ -1,6 +1,4 @@
 <?php
-use App\Utils\SingletonPDO;
-require_once __DIR__.'/autoload.php';
 require_once __DIR__.'/models/FlyRepository.php';
 
 $id = $_POST['id'];
@@ -9,8 +7,6 @@ if(isset($id))
 {
     try
     {
-        $connexion = SingletonPDO::getInstance();
-
         $date = $_POST['date'];
         $location = $_POST['location'];
         $altitude_from = $_POST['altitude_from'];
@@ -20,11 +16,7 @@ if(isset($id))
 
         if(isset($date) && isset($location) && isset($altitude_from) && isset($altitude_to) && isset($time))
         {
-            $sql="UPDATE fly 
-                  SET date='$date', location='$location', altitude_from=$from, altitude_to=$to, time=$time, comment='$comment'
-                  WHERE id=$id;";
-            $connexion->exec($sql);
-
+            FlyRepository::Save($id, $date, $location, $altitude_from, $altitude_to, $time, $comment);
             header("Location: index.php");
             exit();
         }

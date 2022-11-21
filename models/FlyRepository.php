@@ -27,8 +27,31 @@ class FlyRepository
         return $connexion->query($sql)->fetchObject('Fly');
     }
 
-    public static function Save($id, $date, $location, $altitude_from, $altitude_to, $time, $comment)
+    /**
+     * @param Int|null $id
+     * @param $date
+     * @param $location
+     * @param $altitude_from
+     * @param $altitude_to
+     * @param $time
+     * @param $comment
+     */
+    public static function Save(?Int $id, $date, $location, $altitude_from, $altitude_to, $time, $comment)
     {
+        $connexion = SingletonPDO::getInstance();
 
+        if($id)
+        {
+            $sql="UPDATE fly 
+                  SET date='$date', location='$location', altitude_from=$altitude_from, altitude_to=$altitude_to, time=$time, comment='$comment'
+                  WHERE id=$id;";
+            echo '<pre>' . var_export($sql, true) . '</pre>';
+            $connexion->exec($sql);
+        }
+        else
+        {
+            $sql = "INSERT INTO fly VALUES (DEFAULT, '$date', '$location', '$altitude_from', '$altitude_to', '$time', '$comment');";
+            $connexion->query($sql);
+        }
     }
 }

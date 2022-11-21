@@ -1,6 +1,5 @@
 <?php
-use App\Utils\SingletonPDO;
-require_once __DIR__.'/autoload.php';
+require_once __DIR__.'/models/FlyRepository.php';
 
 $date = $_POST['date'];
 $location = $_POST['location'];
@@ -13,10 +12,7 @@ if(isset($date) && isset($location) && isset($altitude_from) && isset($altitude_
 {
     try
     {
-        $connexion = SingletonPDO::getInstance();
-
-        $sql = "INSERT INTO fly VALUES (DEFAULT, '$date', '$location', '$altitude_from', '$altitude_to', '$time', '$comment');";
-        $liste = $connexion->query($sql);
+        FlyRepository::Save(null, $date, $location, $altitude_from, $altitude_to, $time, $comment);
         header("Location: index.php");
         exit();
     }
