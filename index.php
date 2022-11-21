@@ -1,12 +1,11 @@
 <?php
 use App\Utils\SingletonPDO;
 require_once __DIR__.'/autoload.php';
+require_once __DIR__.'/models/FlyRepository.php';
 
 try
 {
-    $connexion = SingletonPDO::getInstance();
-    $sql = "SELECT * FROM fly ORDER BY id ASC;";
-    $liste = $connexion->query($sql);
+    $listeVols = FlyRepository::FindAll();
 }
 catch (PDOException $event)
 {

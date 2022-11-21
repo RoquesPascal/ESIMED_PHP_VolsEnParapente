@@ -23,30 +23,30 @@
                 <th>Voir / Modifier / Supprimer</th>
             </tr>
             <?php
-                while($donnees=$liste->fetch())
+                foreach($listeVols as $vol)
                 {
                     $html = '';
 
                     $html .= '
                         <tr>
-                            <td>'.$donnees['id'].'</td>
-                            <td>'.$donnees['date'].'</td>
-                            <td>'.$donnees['location'].'</td>
-                            <td>'.$donnees['altitude_from'].'</td>
-                            <td>'.$donnees['altitude_to'].'</td>
-                            <td>'.$donnees['time'].'</td>
-                            <td>'.$donnees['comment'].'</td>
+                            <td>'.$vol['id'].'</td>
+                            <td>'.$vol['date'].'</td>
+                            <td>'.$vol['location'].'</td>
+                            <td>'.$vol['altitude_from'].'</td>
+                            <td>'.$vol['altitude_to'].'</td>
+                            <td>'.$vol['time'].'</td>
+                            <td>'.$vol['comment'].'</td>
                             <td>
                                 <form action="show.php" method="post">
-                                    <input type="hidden" name="id" value="'.$donnees['id'].'" />
+                                    <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Voir">
                                 </form>
                                 <form action="edit.php" method="post">
-                                    <input type="hidden" name="id" value="'.$donnees['id'].'" />
+                                    <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Modifier">
                                 </form>
                                 <form action="delete.php" method="post">
-                                    <input type="hidden" name="id" value="'.$donnees['id'].'" />
+                                    <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Supprimer">
                                 </form>
                               </td>
