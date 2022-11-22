@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Couchbase\View;
 use Error;
 use App\models\FlyRepository;
 
