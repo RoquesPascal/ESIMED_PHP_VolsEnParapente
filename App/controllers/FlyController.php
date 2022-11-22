@@ -76,8 +76,16 @@ class FlyController
         }
     }
 
-    public static function Delete() : void
+    public static function Delete($id) : void
     {
-
+        try
+        {
+            FlyRepository::Delete($id);
+            self::Index();
+        }
+        catch (Error $event)
+        {
+            die('Erreur : ' . $event->getMessage());
+        }
     }
 }

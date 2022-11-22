@@ -8,6 +8,9 @@
         <title>Exo2 - Delete</title>
     </head>
     <body>
-        <a href="index.php"><button>menu principal</button></a>
+        <form action="index.php" method="post">
+            <input type="hidden" name="view" value="index" />
+            <input type="submit" value="Menu principal">
+        </form>
     </body>
 </html>

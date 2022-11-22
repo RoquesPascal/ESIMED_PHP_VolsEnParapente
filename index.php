@@ -31,7 +31,7 @@ try
             FlyController::Show($id);
             break;
         case 'delete' :
-            FlyController::Delete();
+            FlyController::Delete($id);
             break;
         default :
             FlyController::Index();

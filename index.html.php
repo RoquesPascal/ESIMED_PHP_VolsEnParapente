@@ -49,7 +49,8 @@
                                     <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Modifier">
                                 </form>
-                                <form action="delete.php" method="post">
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="view" value="delete" />
                                     <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Supprimer">
                                 </form>
