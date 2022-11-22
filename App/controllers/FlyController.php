@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../autoload.php';
 
 class FlyController
 {
-    public static function Home() : void
+    public static function Index() : void
     {
         try
         {
@@ -41,7 +41,7 @@ class FlyController
             try
             {
                 FlyRepository::Save(null, $date, $location, $altitude_from, $altitude_to, $time, $comment);
-                self::Home();
+                self::Index();
             }
             catch (Error $event)
             {

@@ -34,7 +34,7 @@ try
             FlyController::Delete();
             break;
         default :
-            FlyController::Home();
+            FlyController::Index();
             break;
     }
 }
