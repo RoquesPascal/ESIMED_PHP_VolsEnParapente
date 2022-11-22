@@ -9,7 +9,10 @@
         <title>Exo2 - Menu principal</title>
     </head>
     <body>
-        <a href="add.php"><button>Ajouter un saut</button></a>
+        <form action="index.php" method="post">
+            <input type="hidden" name="view" value="addDisplay" />
+            <input type="submit" value="Ajouter un saut">
+        </form>
 
         <table>
             <tr>

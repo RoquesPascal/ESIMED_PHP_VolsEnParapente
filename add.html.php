@@ -10,7 +10,8 @@
     <body>
         <a href="index.php"><button>menu principal</button></a>
 
-        <form action="add.php" method="post">
+        <form action="index.php" method="post">
+            <input type="hidden" name="view" value="add" />
             date : <input type="date" name="date" value="<?php echo date('Y-m-d') ?>" required><br/>
             location : <input type="text" name="location" maxlength="200" required><br/>
             from : <input type="number" name="altitude_from" required><br/>

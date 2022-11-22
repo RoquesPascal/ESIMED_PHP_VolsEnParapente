@@ -19,7 +19,10 @@ try
     switch($view)
     {
         case 'add' :
-            FlyController::Add();
+            FlyController::Add(false, $date, $location, $altitude_from, $altitude_to, $time, $comment);
+            break;
+        case 'addDisplay' :
+            FlyController::Add(true, $date, $location, $altitude_from, $altitude_to, $time, $comment);
             break;
         case 'edit' :
             FlyController::Edit();
