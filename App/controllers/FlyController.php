@@ -25,13 +25,6 @@ class FlyController
 
     public static function Add($displayView, $date, $location, $altitude_from, $altitude_to, $time, $comment) : void
     {
-        $date = $_POST['date'];
-        $location = $_POST['location'];
-        $altitude_from = $_POST['altitude_from'];
-        $altitude_to = $_POST['altitude_to'];
-        $time = $_POST['time'];
-        $comment = $_POST['comment'];
-
         if($displayView)
         {
             include('add.html.php');
@@ -50,9 +43,26 @@ class FlyController
         }
     }
 
-    public static function Edit() : void
+    public static function Edit($displayView, $id, $date, $location, $altitude_from, $altitude_to, $time, $comment) : void
     {
+        if($displayView)
+        {
+            $vol = FlyRepository::Find($id);
+            $id = $vol->getId();
+            $date = $vol->getDate();
+            $location = $vol->getLocation();
+            $altitude_from = $vol->getAltitudeFrom();
+            $altitude_to = $vol->getAltitudeTo();
+            $time = $vol->getTime();
+            $comment = $vol->getComment();
 
+            include('edit.html.php');
+        }
+        else if(isset($id) && isset($date) && isset($location) && isset($altitude_from) && isset($altitude_to) && isset($time))
+        {
+            FlyRepository::Save($id, $date, $location, $altitude_from, $altitude_to, $time, $comment);
+            self::Index();
+        }
     }
 
     public static function Show($id) : void

@@ -25,7 +25,10 @@ try
             FlyController::Add(true, $date, $location, $altitude_from, $altitude_to, $time, $comment);
             break;
         case 'edit' :
-            FlyController::Edit();
+            FlyController::Edit(false, $id, $date, $location, $altitude_from, $altitude_to, $time, $comment);
+            break;
+        case 'editDisplay' :
+            FlyController::Edit(true, $id, $date, $location, $altitude_from, $altitude_to, $time, $comment);
             break;
         case 'show' :
             FlyController::Show($id);

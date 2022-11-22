@@ -31,7 +31,8 @@
                 <td><?php echo $time; ?></td>
                 <td><?php echo $comment; ?></td>
                 <td>
-                    <form action="edit.php" method="post">
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="view" value="editDisplay" />
                         <input type="hidden" name="id" value="<?php echo $id ?>" />
                         <input type="submit" value="Modifier">
                     </form>

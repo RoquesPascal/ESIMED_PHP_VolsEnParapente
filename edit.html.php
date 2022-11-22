@@ -8,9 +8,13 @@
         <title>Exo2 - Edit</title>
     </head>
     <body>
-        <a href="index.php"><button>menu principal</button></a>
+        <form action="index.php" method="post">
+            <input type="hidden" name="view" value="index" />
+            <input type="submit" value="Menu principal">
+        </form>
         
-        <form action="edit.php" method="post">
+        <form action="index.php" method="post">
+            <input type="hidden" name="view" value="edit" />
             <input type="hidden" name="id" value="<?php echo $id; ?>" />
             date : <input type="date" name="date" value="<?php echo $date; ?>" required><br/>
             location : <input type="text" name="location" maxlength="200" value="<?php echo $location; ?>" required><br/>
