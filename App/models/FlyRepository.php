@@ -1,8 +1,12 @@
 <?php
 
+namespace App\models;
+
 use App\Utils\SingletonPDO;
-require_once __DIR__.'/../autoload.php';
-require_once __DIR__.'/Fly.php';
+use Error;
+
+require_once __DIR__ . '/../../autoload.php';
+require_once __DIR__ . '/Fly.php';
 
 class FlyRepository
 {
@@ -33,7 +37,7 @@ class FlyRepository
         {
             $connexion = SingletonPDO::getInstance();
             $sql = "SELECT * FROM fly WHERE id=$id;";
-            return $connexion->query($sql)->fetchObject('Fly');
+            return $connexion->query($sql)->fetchObject('App\models\Fly');
         }
         catch (Error $event)
         {

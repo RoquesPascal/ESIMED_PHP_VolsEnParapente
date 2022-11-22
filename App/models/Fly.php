@@ -1,5 +1,7 @@
 <?php
 
+namespace App\models;
+
 class Fly
 {
     private int $id;

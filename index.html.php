@@ -37,7 +37,8 @@
                             <td>'.$vol['time'].'</td>
                             <td>'.$vol['comment'].'</td>
                             <td>
-                                <form action="show.php" method="post">
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="view" value="show" />
                                     <input type="hidden" name="id" value="'.$vol['id'].'" />
                                     <input type="submit" value="Voir">
                                 </form>
@@ -54,7 +55,6 @@
                     ';
                     echo $html;
                 }
-
             ?>
         </table>
     </body>
